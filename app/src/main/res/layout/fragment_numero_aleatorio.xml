@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            style="@style/TituloPantalla"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Numero aleatorio" />
+
+        <TextView
+            style="@style/TextoNormal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Se genera un numero de 6 cifras y se verifica si tiene 3 digitos impares." />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/botonGenerarNumero"
+            style="@style/BotonPrincipal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="Generar numero" />
+
+        <TextView
+            android:id="@+id/textoNumeroGenerado"
+            style="@style/TextoResultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="Numero generado" />
+
+        <TextView
+            android:id="@+id/textoResultadoAleatorio"
+            style="@style/TextoResultado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Resultado" />
+    </LinearLayout>
+</ScrollView>
