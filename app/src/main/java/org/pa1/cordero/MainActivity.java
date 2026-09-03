@@ -8,7 +8,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
@@ -30,6 +33,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.navigationView);
 
         setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
+        ajustarToolbarConBarraEstado(toolbar);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,
                 drawerLayout,
@@ -74,6 +82,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 .beginTransaction()
                 .replace(R.id.contenedorFragments, fragment)
                 .commit();
+    }
+
+    private void ajustarToolbarConBarraEstado(Toolbar toolbar) {
+        int altoOriginal = getResources().getDimensionPixelSize(R.dimen.alto_toolbar);
+        ViewCompat.setOnApplyWindowInsetsListener(toolbar, (vista, insets) -> {
+            Insets barrasSistema = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            vista.setPadding(
+                    vista.getPaddingLeft(),
+                    barrasSistema.top,
+                    vista.getPaddingRight(),
+                    vista.getPaddingBottom()
+            );
+            vista.getLayoutParams().height = altoOriginal + barrasSistema.top;
+            vista.requestLayout();
+            return insets;
+        });
     }
 
     @Override

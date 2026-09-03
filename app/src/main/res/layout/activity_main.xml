@@ -13,14 +13,17 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="@dimen/alto_toolbar"
             android:background="@color/primary"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <TextView
                 android:id="@+id/tituloToolbar"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:text="@string/app_name"
                 android:textColor="@color/white"
                 android:textSize="20sp"
